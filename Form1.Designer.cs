@@ -151,6 +151,8 @@ namespace Laba4_2
             this.Controls.Add(this.tbA);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownC)).EndInit();

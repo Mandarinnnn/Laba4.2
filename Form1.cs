@@ -22,6 +22,8 @@ namespace Laba4_2
            
         }
 
+
+
         private void tbA_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -91,6 +93,28 @@ namespace Laba4_2
             tbC.Text = model.getValueC().ToString();
             numericUpDownC.Value = model.getValueC();
             trackBarC.Value = model.getValueC();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)//сохранение значений
+        {
+            Properties.Settings.Default.A = model.getValueA();
+            Properties.Settings.Default.B = model.getValueB();
+            Properties.Settings.Default.C = model.getValueC();
+            Properties.Settings.Default.Save();
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            tbA.Text = Properties.Settings.Default.A.ToString();
+            numericUpDownA.Value = Properties.Settings.Default.A;
+            trackBarA.Value = Properties.Settings.Default.A;
+
+            tbB.Text = Properties.Settings.Default.B.ToString();
+            numericUpDownA.Value = Properties.Settings.Default.B;
+            trackBarB.Value = Properties.Settings.Default.B;
+
+            tbC.Text = Properties.Settings.Default.C.ToString();
+            numericUpDownC.Value = Properties.Settings.Default.C;
+            trackBarC.Value = Properties.Settings.Default.C;
         }
     }
 
