@@ -17,7 +17,7 @@ namespace Laba4_2
         public Form1()
         {
             InitializeComponent();
-            model = new Model();
+            model = new Model();                           // создание модели
             model.observers += new System.EventHandler(this.UpdateFromModel);
            
         }
@@ -26,19 +26,19 @@ namespace Laba4_2
 
         private void tbA_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter) // при нажатии на Enter значение tbA отправляется в модель
             {
                 model.setValueA(Int32.Parse(tbA.Text));
             }
         }
         private void numericUpDownA_ValueChanged(object sender, EventArgs e)
         {
-            model.setValueA(Decimal.ToInt32(numericUpDownA.Value));
+            model.setValueA(Decimal.ToInt32(numericUpDownA.Value)); //при изменении значения numericUpDownA значение отправляется в модель
         }
 
         private void trackBarA_Scroll(object sender, EventArgs e)
         {
-            model.setValueA(trackBarA.Value);
+            model.setValueA(trackBarA.Value);//при изменении значения trackBarA значение отправляется в модель
         }
 
 
@@ -80,7 +80,7 @@ namespace Laba4_2
             model.setValueC(trackBarC.Value);
         }
 
-        private void UpdateFromModel(object sender, EventArgs e)
+        private void UpdateFromModel(object sender, EventArgs e)//метод, обновляющий значения в элементах
         {
             tbA.Text = model.getValueA().ToString();
             numericUpDownA.Value = model.getValueA();
@@ -102,7 +102,7 @@ namespace Laba4_2
             Properties.Settings.Default.C = model.getValueC();
             Properties.Settings.Default.Save();
         }
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)//восстановление значений в элементах
         {
             tbC.Text = Properties.Settings.Default.C.ToString();
             numericUpDownC.Value = Properties.Settings.Default.C;
